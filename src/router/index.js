@@ -16,12 +16,12 @@ const routerConfig = {
       {
          path: '/sidebar',
          name: 'sidebar',
-         component: () => import( /* webpackChunkName: "module/[request]" */ 'view/sidebar/sidebar' )
+         component: () => import( /* webpackChunkName: "module/sidebar" */ 'view/sidebar/sidebar' )
       },
       {
          path: '/radius',
          name: 'radius',
-         component: () => import( /* webpackChunkName: "module/[request]" */ 'view/radius/radius' )
+         component: () => import( /* webpackChunkName: "module/radius" */ 'view/radius/radius' )
       },
       {
          path: '*',
