@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+### .gitignore template
+
+.idea/
+node_modules/
+dist/
+eslint.rules.js
+production/
+development/
+uploader/
+test/
+新建文件夹/
+config/
+dll/
+
+
+
