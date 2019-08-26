@@ -5,8 +5,7 @@
       </h2>
       <!--<img src="~IMG/img3.jpg" alt="" style="width:100%">-->
       <div class="public">
-         <div class="assets">
-            {{ msg }}
+         <div class="assets" v-html="msg">
          </div>
       </div>
    </div>
@@ -19,7 +18,7 @@ export default {
    data: function () {
 
       return {
-         msg: 'test'
+         msg: '无敌真寂寞<br>问问他们我是谁<br>大力出奇迹<br>小生我怕怕<br>充气女友最开放<br>传奇害了我'
       };
 
    },
@@ -28,7 +27,7 @@ export default {
 
 <style scoped>
    .aaa{
-      color: #44e5ff;
+      color: #2b8bff;
    }
    h2 {
       color: #3a2f7a;
@@ -39,7 +38,8 @@ export default {
    .public {
       border: 1px solid;
       width: 25%;
-      height: 800px;
+      height: 400px;
+      padding: 20px
       /*overflow: hidden;*/
       /*top: 200px;*/
       /*bottom: 0;*/
@@ -55,4 +55,5 @@ export default {
       /*overflow-x: auto;*/
       padding: 15px;
    }
+
 </style>
