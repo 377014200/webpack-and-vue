@@ -22,14 +22,16 @@
 </template>
 
 <script>
-import 'CSS/extract/globalStyle.css'
+import 'CSS/extract/globalStyle.css';
 
 export default {
    name: 'AppVue',
    created: function () {
-      console.log('[ 寻找失去的未来 ] : 在学习 webpack 的日子里')
+
+      console.log( '[ 寻找失去的未来 ] : 在学习 webpack 的日子里' );
+
    },
-}
+};
 </script>
 
 <style lang="less">
