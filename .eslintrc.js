@@ -1,3 +1,17 @@
+
+/*
+*        适用于 vue 项目的语法检测配置不包含 css 的检测
+*     依赖包:
+*     "eslint": "^6.1.0",
+*     "eslint-config-airbnb-base": "^14.0.0",
+*     "eslint-plugin-html": "^6.0.0",
+*     "eslint-plugin-promise": "^4.2.1",
+*     "eslint-plugin-import": "^2.18.2",
+*     "eslint-plugin-standard": "^4.0.0",
+*     "eslint-plugin-vue": "^5.2.3",
+*     "vue-eslint-parser": "^6.0.4",
+* */
+
 module.exports = {
    "root": true,
    "env": {
@@ -47,7 +61,6 @@ module.exports = {
         *  https://eslint.vuejs.org/rules
         *
         * */
-
       'vue/attributes-order': ['error', { // 此规则旨在强制组件属性的排序。默认顺序在Vue styleguide中指定
          'order': [
             [
