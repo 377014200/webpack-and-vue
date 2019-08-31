@@ -5,7 +5,15 @@
       </h2>
       <!--<img src="~IMG/img3.jpg" alt="" style="width:100%">-->
       <div class="public">
-         <div class="assets" v-html="msg">
+         <div class="assets">
+            无敌真寂寞<br />
+            问问他们我是谁<br />
+            大力出奇迹<br />
+            小生我怕怕<br />
+            充气女友最开放<br />
+            传奇害了我<br />
+            一大米呦抗几楼<br />
+
          </div>
       </div>
    </div>
@@ -18,7 +26,7 @@ export default {
    data: function () {
 
       return {
-         msg: '无敌真寂寞<br>问问他们我是谁<br>大力出奇迹<br>小生我怕怕<br>充气女友最开放<br>传奇害了我'
+         msg: ''
       };
 
    },
