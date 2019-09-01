@@ -98,7 +98,7 @@ module.exports = function ( ENV ) {
                               sourceMap: false,
                               importLoaders: 2,
                               modules: true,
-                              localIdentName: '[name]_[local]_[hash:base64:5]'
+                              localIdentName: devMode ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64]'
                            }
                         },
                         /* config.module.rule('css').oneOf('vue-modules').use('postcss-loader') */
@@ -158,7 +158,7 @@ module.exports = function ( ENV ) {
                               sourceMap: false,
                               importLoaders: 2,
                               modules: true,
-                              localIdentName: '[name]_[local]_[hash:base64:5]'
+                              localIdentName: devMode ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64]'
                            }
                         },
                         /* config.module.rule('css').oneOf('normal-modules').use('postcss-loader') */
@@ -182,15 +182,6 @@ module.exports = function ( ENV ) {
                               shadowMode: false
                            }
                         } : MiniCssExtractPlugin.loader,
-                        // {
-                        //    loader: MiniCssExtractPlugin.loader,
-                        //    options: {
-                        //       // only enable hot in development
-                        //       hmr: devMode,
-                        //       // if hmr does not work, this is a forceful method.
-                        //       reloadAll: true,
-                        //    },
-                        // },
                         /* config.module.rule('css').oneOf('normal').use('css-loader') */
                         {
                            loader: 'css-loader',
@@ -234,7 +225,7 @@ module.exports = function ( ENV ) {
                               sourceMap: false,
                               importLoaders: 2,
                               modules: true,
-                              localIdentName: '[name]_[local]_[hash:base64:5]'
+                              localIdentName: devMode ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64]'
                            }
                         },
                         /* config.module.rule('less').oneOf('vue-modules').use('postcss-loader') */
@@ -308,7 +299,7 @@ module.exports = function ( ENV ) {
                               sourceMap: false,
                               importLoaders: 2,
                               modules: true,
-                              localIdentName: '[name]_[local]_[hash:base64:5]'
+                              localIdentName: devMode ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64]'
                            }
                         },
                         /* config.module.rule('less').oneOf('normal-modules').use('postcss-loader') */
@@ -415,7 +406,7 @@ module.exports = function ( ENV ) {
 
             // javascript
             {
-               test: /\.js$/,
+               test: /\.js(x)?$/,
                // include:  resolve('src')
                exclude: /node_modules/, // !!!
                loader: 'babel-loader',
