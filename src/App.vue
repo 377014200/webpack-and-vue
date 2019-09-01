@@ -12,6 +12,9 @@
             <Button @click="$router.push('/radius')">
                radius
             </Button>
+            <Button @click="$router.push('/black')">
+               black
+            </Button>
             <Button @click="$router.push('404')">
                404
             </Button>

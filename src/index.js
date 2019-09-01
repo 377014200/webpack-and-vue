@@ -19,5 +19,12 @@ new Vue( {
    el: '#app',
    router,
    store,
-   render: h => h( AppView )
+   created() {
+
+      // h 参数并没有自动注入到 render 中, jsx 并不能正常的工作, 手动解决这个问题
+      window.h = this.$createElement;
+
+   },
+   render: () => <AppView />
+
 } );

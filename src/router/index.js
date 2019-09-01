@@ -24,6 +24,11 @@ const routerConfig = {
          component: () => import( /* webpackChunkName: "module/radius" */ 'view/radius/radius' )
       },
       {
+         path: '/black',
+         name: 'black',
+         component: () => import( /* webpackChunkName: "module/jsx" */ 'view/jsx/black.jsx' )
+      },
+      {
          path: '*',
          name: '404',
          component: () => import( /* webpackChunkName: "module/404" */ 'view/error/404' )
