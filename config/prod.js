@@ -2,6 +2,6 @@
 
 module.exports = {
    NODE_ENV: JSON.stringify('production'),
-   BASE: "'/production/static/'",
+   BASE_URL: "'/static/'",
    routerBase: JSON.stringify('/')
 }
