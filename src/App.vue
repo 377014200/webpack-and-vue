@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style  scoped>
    .root{
       margin: 0 50px;
    }
@@ -48,8 +48,10 @@ export default {
    }
    header nav {
       text-align: center;
-      button {
-         margin: 0 10px;
-      }
+
    }
+   >>> button {
+      margin: 0 10px;
+   }
+
 </style>
