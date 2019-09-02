@@ -13,7 +13,6 @@
          Cancel all selected
       </Button>
 
-      <Table />
 
 
       <div></div>
