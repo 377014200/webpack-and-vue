@@ -56,11 +56,15 @@ module.exports = {
    // 	},
    // },
    "rules": {
+      // jsx
+      "jsx-quotes": ["error", "prefer-single"],
+
       /*
         *  在这里去寻找 vue.rules 参考
         *  https://eslint.vuejs.org/rules
         *
         * */
+      // vue
       'vue/attributes-order': ['error', { // 此规则旨在强制组件属性的排序。默认顺序在Vue styleguide中指定
          'order': [
             [
