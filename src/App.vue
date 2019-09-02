@@ -31,7 +31,7 @@ export default {
    name: 'AppVue',
    created: function () {
 
-      console.log( '[ 寻找失去的未来 ] : 在学习 webpack 的日子里' );
+      console.log( '[ 欲上青天揽明月 ] : 在学习 webpack 的日子里' );
 
    },
 };
