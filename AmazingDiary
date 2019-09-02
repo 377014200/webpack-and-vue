@@ -3,3 +3,10 @@
 # 添加对 jsx 语法的支持;
 # 修复 css 在使用 module 模式下报错的问题;
 # (css-loader由原来的^3.0.0, 降低到^1.0.0, ^3.0.0的版本 options.localIdentName会报错我不知道这是什么原因)
+
+
+!   2019/09/02 15:37
+
+# css loader 版本有^3.0.0降到^1.0.0 原因是 options.localIdentName 在3.0.0 中会报错
+# 修改环境变量 routerBase
+# 完成 jsx 语法的测试 demo ,并支持 hmr
