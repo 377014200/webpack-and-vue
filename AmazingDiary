@@ -7,6 +7,6 @@
 
 !   2019/09/02 15:37
 
-# css loader 版本有^3.0.0降到^1.0.0 原因是 options.localIdentName 在3.0.0 中会报错
 # 修改环境变量 routerBase
 # 完成 jsx 语法的测试 demo ,并支持 hmr
+# 添加 favicon.ico 图标
