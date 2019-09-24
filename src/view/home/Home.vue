@@ -13,8 +13,9 @@
             充气女友最开放<br />
             传奇害了我<br />
             一大米呦抗几楼<br />
-
          </div>
+         <p>{{ num }}</p>
+         <Button @click="$store.commit('home/increment', 'test vuex plugin option')"> 点鸡 </Button>
       </div>
    </div>
 </template>
@@ -30,6 +31,18 @@ export default {
       };
 
    },
+   mounted(){
+
+      console.log( this )
+
+   },
+   computed:{
+      num: function () {
+
+         return this.$store.state.home.count;
+
+      }
+   }
 };
 </script>
 
