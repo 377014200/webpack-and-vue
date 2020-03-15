@@ -7,7 +7,6 @@ import installRouter from './router';
 import store from './store';
 import { sync } from 'vuex-router-sync';
 import AppView from './App';
-import 'iview/dist/styles/iview.css';
 import enrollIviewComponent from './iviewComponents';
 
 const router = installRouter( Vue );

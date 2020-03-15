@@ -5,7 +5,7 @@ const routerConfig = {
    mode: 'history',
    // base: '/production/',
    // routerBase 是在 config 文件中配置的环境变量
-   base: routerBase || '/',
+   // base: routerBase || '/',
    linkExactActiveClass: 'active',
    // component: lazy 必须要是函数返回, 在某些情况下,路径也是出现问题最多, 你很难发觉
    routes: [
