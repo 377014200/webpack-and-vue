@@ -18,7 +18,7 @@ module.exports = new Promise ( function ( resolve ) {
             webpackConfig.plugins.push (
                 new MyWebpackPlugin ( {
                     message : [
-                        chalk.blue(`whale_Setting is running here: `),
+                        chalk.blue(`assetsPublicPath: `),
                         ' ',
                         chalk.blue(`http://localhost:${port}${config.dev.assetsPublicPath}`),
                         ' ',

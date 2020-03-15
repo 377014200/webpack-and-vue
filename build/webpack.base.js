@@ -47,66 +47,7 @@ module.exports = merge( loaderConfig, {
         runtimeChunk: 'single', // !!!!
         // 告诉webpack检测并删除空块
         removeEmptyChunks: true,
-        // 目前来看分割 css 和 js 很不错, 其他的静态资源的分割交给 file-loader !!
-        splitChunks: {
-            // chunks: 'all',
-            // minSize: 10240, // 10kb
-            cacheGroups: {
-                // iview: {
-                //     chunks: 'all',
-                //     test: /[\\/]node_modules[\\/]iview[\\/]/i,
-                //     filename: `static/vendors/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                //     name: 'iview'
-                // },
-                // iviewCss: {
-                //     // test: 'iview/dist/styles/iview.css',
-                //     test: /iview\.css$/,
-                //     enforce: true,
-                //     chunks: 'all',
-                //     // 因 css 而生成的这个 js 文件和这个 css 放在一起
-                //     filename: `static/vendors/iview/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                //     name: 'iview'
-                // },
-                // vue: {
-                //     test: /[\\/]node_modules[\\/](vue|vuex|vue-router|vuex-router-sync)[\\/]/,
-                //     enforce: true,
-                //     priority: -10,
-                //     chunks: 'all',
-                //     filename: `static/vendors/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                //     name: 'vue~vuex~vue-router'
-                // },
-                // globalStyles: { // 提取 css 有个问题就是 runtime 好像是走的这个出口
-                //     // 复用的 css 处于测试阶段
-                //     name: 'extract/global-style',
-                //     // filename: `static/javascript/stylesheet/global-style${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                //     test: /[\\/]extract[\\/]\w*\.(sa|sc|c)ss$/,
-                //     chunks: 'all',
-                //     enforce: true,
-                // },
 
-                // iview: {
-                //     test: /[\\/]node_modules[\\/]iview[\\/]/,
-                //     enforce: true,
-                //     chunks: 'all',
-                //     priority: -10,
-                //     filename: `static/vendors/iview/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                // },
-                // vendors: { // 将第三方的类库提取出来放到指定的文件中- js
-                //     test: /[\\/]node_modules[\\/](lodash|jQuery)[\\/]/,
-                //     priority: -10,
-                //     chunks: 'all',
-                //     filename: `vendors/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                //     enforce: true,
-                //     name: ( module ) => {
-                //         /*
-                //  * rawRequest: 'lodash',
-                //  * module.identifier()           =>返回路径
-                //  * */
-                //         return module.rawRequest;
-                //     },
-                // },
-            }
-        }
     },
 
     // 这是和控制台输出的信息有关的信息
