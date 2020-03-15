@@ -52,7 +52,7 @@ module.exports = merge ( webpackBaseConfig, {
         } ] ),
         new webpack.DefinePlugin ( env ),
         new HtmlWebpackPlugin ( {
-            template : resolve ( 'public/index.html' ),
+            template : config.build.index,
             // 参考 https://github.com/kangax/html-minifier#options-quick-reference
             // 压缩
             minify : {
