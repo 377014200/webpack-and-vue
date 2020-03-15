@@ -1,7 +1,7 @@
 'use strict';
 
 class MyWebpackPlugin{
-    constructor ( options ) {
+    constructor ( options = {} ) {
         this.n = 0;
         this.message = options.message;
     }
