@@ -39,13 +39,17 @@ exports.createCssLoader = function ( option = {}, loader ) {
         } )
     }
     // 其他加载程序；
-    if ( loader ){
-        if ( loader instanceof Array ) {
-            loaders = loaders.concat ( loader.filter( item => item && item.loader ) )
-        } else {
-            loaders.push ( loader )
-        }
+    if ( verification ( loader ) ) {
+        loaders.push ( loader )
     }
+    if ( loader instanceof Array ) {
+        loaders = loaders.concat ( loader.filter ( verification ) )
+    }
+
+    function verification ( options ) {
+        return typeof options === 'string' || options.loader
+    }
+
     return [
         styleLoader,
         {
@@ -65,14 +69,14 @@ exports.generateLoaders = function ( { loader, options = {}, beforeLoader, after
     const _afterLoader = afterLoader instanceof Array ? afterLoader : [afterLoader];
     if ( loader === 'css-loader' ) {
         return exports.createCssLoader (
-            { ...options, modules : cssModules },
+            { ... options, modules : cssModules },
             _afterLoader
         )
     }
     return exports.createCssLoader (
         { modules : cssModules },
         [
-            ..._beforeLoader,
+            ... _beforeLoader,
             {
                 loader,
                 options : Object.assign ( {}, options, {
@@ -80,29 +84,29 @@ exports.generateLoaders = function ( { loader, options = {}, beforeLoader, after
                     },
                 )
             },
-            ..._afterLoader
+            ... _afterLoader
         ] )
 };
-exports.initCssLoader = function ( {loader , options, beforeLoader, afterLoader} = {} ) {
+exports.initCssLoader = function ( { loader, options, beforeLoader, afterLoader } = {} ) {
     const bootstrap = {
         'css-loader' : /\.css$/,
         'less-loader' : /\.less$/,
         'sass-loader' : /\.scss$/,
         'stylus-loader' : /\.styl$/,
     };
-    if ( loader in bootstrap){
+    if ( loader in bootstrap ) {
         return {
             test : bootstrap[ loader ],
             oneOf : [
                 {
                     resourceQuery : /module/,
-                    use : exports.generateLoaders ( {loader, options, beforeLoader, afterLoader}, true ),
+                    use : exports.generateLoaders ( { loader, options, beforeLoader, afterLoader }, true ),
                 },
                 {
-                    use : exports.generateLoaders ( {loader, options, beforeLoader, afterLoader} )
+                    use : exports.generateLoaders ( { loader, options, beforeLoader, afterLoader } )
                 },
             ]
         }
     }
-    console.warn('You must have a loader' );
+    console.warn ( 'You must have a loader' );
 };
