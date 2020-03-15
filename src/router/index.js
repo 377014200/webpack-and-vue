@@ -11,27 +11,27 @@ const routerConfig = {
    routes: [
       {
          path: '/',
-         component: () => import( /* webpackChunkName: "module/home" */ 'view/home/Home' )
+         component: () => import( /* webpackChunkName: "pages" */ 'view/home/Home' )
       },
       {
          path: '/sidebar',
          name: 'sidebar',
-         component: () => import( /* webpackChunkName: "module/sidebar" */ 'view/sidebar/Sidebar' )
+         component: () => import( /* webpackChunkName: "pages" */ 'view/sidebar/Sidebar' )
       },
       {
          path: '/radius',
          name: 'radius',
-         component: () => import( /* webpackChunkName: "module/radius" */ 'view/radius/Radius' )
+         component: () => import( /* webpackChunkName: "pages" */ 'view/radius/Radius' )
       },
       {
          path: '/black',
          name: 'black',
-         component: () => import( /* webpackChunkName: "module/jsx" */ 'view/jsx/Black' )
+         component: () => import( /* webpackChunkName: "pages" */ 'view/jsx/Black' )
       },
       {
          path: '*',
          name: '404',
-         component: () => import( /* webpackChunkName: "module/404" */ 'view/error/404' )
+         component: () => import( /* webpackChunkName: "pages" */ 'view/error/404' )
       }
    ]
 };
