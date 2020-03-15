@@ -9,12 +9,14 @@ module.exports = {
         assetsPublicPath: './',
         cssSourceMap: true,
         devtool: 'cheap-module-source-map', // Source Maps
+        //打包的时候开启gzip可以大大减少体积，非常适合于上线部署, 后台也需要做相应的部署；
         productionGzip: false,
         productionGzipExtensions: ['js', 'css'],
-        bundleAnalyzerReport: process.env.ANALYZE,
+        bundleAnalyzerReport: process.env.report,
         happyPack: false,
         cssAutoprefixer: true,
         hashLength: 8,
+
     },
     dev: {
         env: require( './dev.env' ),
@@ -45,6 +47,11 @@ module.exports = {
     },
     dll: {
         happyPack: false,
-        library: ['vue']
+        hashLength: 8,
+        // value 必须是数组
+        library: {
+            vue: ['vue/dist/vue.esm.js', 'vue-router', 'vuex'],
+            // iview: ['iview']
+        }
     }
 };
