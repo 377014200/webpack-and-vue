@@ -18,7 +18,7 @@ module.exports = new Promise ( function ( resolve ) {
             webpackConfig.plugins.push (
                 new MyWebpackPlugin ( {
                     message : [
-                        chalk.blue(`assetsPublicPath: `),
+                        chalk.blue(`The program runs on: `),
                         ' ',
                         chalk.blue(`http://localhost:${port}${config.dev.assetsPublicPath}`),
                         ' ',
