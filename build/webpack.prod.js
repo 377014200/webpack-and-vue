@@ -6,12 +6,29 @@ const webpackBaseConfig = require ( './webpack.base.js' );
 const CopyPlugin = require ( 'copy-webpack-plugin' );
 const webpack = require ( 'webpack' );
 const HtmlWebpackPlugin = require ( 'html-webpack-plugin' );
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require ( 'mini-css-extract-plugin' ); // <= 4.0 (webpack version)
 const OptimizeCssAssetsPlugin = require ( 'optimize-css-assets-webpack-plugin' ); // 压缩 css webpack3中一般配合 ExtractTextPlugin一起使用。
 const AddAssetHtmlPlugin = require ( 'add-asset-html-webpack-plugin' ); // 将 DLL 文件中的JavaScript或CSS资产添加到HTML -webpack-plugin生成的HTML中
 const env = require ( '../config/prod.env.js' );
 const { assetsPath, resolve } = require ( './utils' );
 const config = require ( '../config' );
+const choosablePlugin = [
+    // Webpack插件和CLI实用程序，它将包内容表示为方便的交互式可缩放树地图,
+    // 分析打包结构时很有用, 在需要时打开它, 否则关闭它
+    config.build.bundleAnalyzerReport ? new ( require ( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin ) () : false,
+    config.build.productionGzip ? new ( require ( 'compression-webpack-plugin' ) ) ( {
+        asset : '[path].gz[query]',
+        algorithm : 'gzip',
+        test : new RegExp (
+            '\\.(' +
+            config.build.productionGzipExtensions.join ( '|' ) +
+            ')$'
+        ),
+        threshold : 10240,
+        minRatio : 0.8
+    } ) : false
+].filter ( plugin => plugin );
 
 module.exports = merge ( webpackBaseConfig, {
 
@@ -30,13 +47,11 @@ module.exports = merge ( webpackBaseConfig, {
     },
     devtool : config.build.devtool,
     plugins : [
-        new CopyPlugin ( [
-            {
+        new CopyPlugin ( [{
                 from : resolve ( 'public' ),
                 to : 'static',
                 ignore : ['*.html'],
-            }
-        ] ),
+        } ] ),
         new webpack.DefinePlugin ( env ),
         new HtmlWebpackPlugin ( {
             template : resolve ( 'public/index.html' ),
@@ -52,8 +67,8 @@ module.exports = merge ( webpackBaseConfig, {
             }
         } ),
         new MiniCssExtractPlugin ( {
-            filename : 'static/css/[name].[chunkhash].css',
-            chunkFilename : 'static/css/[name].[chunkhash].css'
+            filename : assetsPath('css/[name].[chunkhash].css' ),
+            chunkFilename : assetsPath('css/[name].[chunkhash].css' )
         } ),
         new OptimizeCssAssetsPlugin ( {
             assetNameRegExp : /\.css$/g,
@@ -61,40 +76,38 @@ module.exports = merge ( webpackBaseConfig, {
             cssProcessorOptions : { safe : true, discardComments : { removeAll : true } },
             canPrint : true
         } ),
-        // new webpack.DllReferencePlugin( {
-        //     manifest: resolve( './dll', 'vendors-manifest.json' ),
-        // } ),
+        new webpack.DllReferencePlugin( {
+            manifest: resolve( './dll/vue-manifest.json' ),
+        } ),
         //
-        // new AddAssetHtmlPlugin( {
-        //     // filepath: resolve( './dll/*.dll.js' ),
-        //     filepath: resolve( 'dll', 'vendors.*.dll.js' ),
-        //     outputPath: 'static/vendors/',
-        //     publicPath: publicPath + 'static/vendors/'
-        // } )
-    ],
+        new AddAssetHtmlPlugin( {
+            // filepath: resolve( './dll/*.dll.js' ),
+            filepath: resolve( 'dll/*.*.dll.js' ),
+            outputPath: assetsPath('javascript'),
+            publicPath: config.build.assetsPublicPath + 'static/javascript/'
+        } )
+    ].concat ( choosablePlugin ),
     optimization : {
-        // 压缩: 暂时没有压缩 production 下是默认的
-        minimize : true,
-        // minimizer: [
-        //    new TerserPlugin( { // 这个配置没什么明显的效果他应该是默认的
-        //       test: /\.js(\?.*)?$/i,
-        //       sourceMap: true,
-        //       parallel: true, // 并行
-        //       cache: true,
-        //       exclude: /[\\/]node_module[\\/]/,
-        //       // terserOptions: {
-        //       //    compress:{
-        //       //       warnings:false,
-        //       //       drop_debugger:true,
-        //       //       // drop_console:true
-        //       //    },
-        //       //    output: {
-        //       //       comments: false, //去掉注释
-        //       //    },
-        //       // },
-        //
-        //    } ),
-        // ],
+        minimizer: [
+           new TerserPlugin( { // 这个配置没什么明显的效果他应该是默认的
+              test: /\.js(\?.*)?$/i,
+              sourceMap: true,
+              parallel: true, // 并行
+              cache: true,
+              exclude: /[\\/]node_module[\\/]/,
+              terserOptions: {
+                 compress:{
+                    warnings:false,
+                    drop_debugger:true,
+                    drop_console:['console.log']
+                 },
+                 output: {
+                    comments: false, //去掉注释
+                 },
+              },
+
+           } ),
+        ],
         nodeEnv : 'production',
     },
     /*

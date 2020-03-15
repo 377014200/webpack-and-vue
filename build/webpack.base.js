@@ -2,7 +2,6 @@
 
 const merge = require( 'webpack-merge' );
 const webpack = require( 'webpack' );
-const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const VueLoaderPlugin = require( 'vue-loader/lib/plugin' );
 const loaderConfig = require( './webpack.loader.js' );
 const { resolve } = require( './utils' );
@@ -14,16 +13,12 @@ module.exports = merge( loaderConfig, {
         app: './src/index.js',
     },
     plugins: [
-        new CleanWebpackPlugin(),
         // new webpack.DefinePlugin( devMode ? env_dev : env_prod ),
         new VueLoaderPlugin(),
         new webpack.ProvidePlugin( {
             // $: 'jquery',
             '_': 'lodash',
         } ),
-        // Webpack插件和CLI实用程序，它将包内容表示为方便的交互式可缩放树地图,
-        // 分析打包结构时很有用, 在需要时打开它, 否则关闭它
-        // new BundleAnalyzerPlugin()
     ],
     resolve: {
         aliasFields: ['browser'],
@@ -56,54 +51,61 @@ module.exports = merge( loaderConfig, {
         // 目前来看分割 css 和 js 很不错, 其他的静态资源的分割交给 file-loader !!
         splitChunks: {
             // chunks: 'all',
-            minSize: 10240, // 10kb
+            // minSize: 10240, // 10kb
             cacheGroups: {
-                vue: {
-                    test: /[\\/]node_modules[\\/](vue|vuex|vue-router|vuex-router-sync)[\\/]/,
-                    enforce: true,
-                    priority: -10,
-                    chunks: 'all',
-                    filename: `static/vendors/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                    name: 'vue~vuex~vue-router'
-                },
-                globalStyles: { // 提取 css 有个问题就是 runtime 好像是走的这个出口
-                    // 复用的 css 处于测试阶段
-                    name: 'css/global-style',
-                    filename: `static/javascript/stylesheet/global-style${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                    test: /[\\/]extract[\\/]\w*\.(sa|sc|c)ss$/,
-                    chunks: 'all',
-                    enforce: true,
-                },
-                iviewCss: {
-                    // test: 'iview/dist/styles/iview.css',
-                    test: /iview\.css$/,
-                    enforce: true,
-                    chunks: 'all',
-                    // 因 css 而生成的这个 js 文件和这个 css 放在一起
-                    filename: `static/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                    name: 'vendors/iview/iview_style.main'
-                },
-                iview: {
-                    test: /[\\/]node_modules[\\/]iview[\\/]/,
-                    enforce: true,
-                    chunks: 'all',
-                    priority: -10,
-                    filename: `static/vendors/iview/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                },
-                vendors: { // 将第三方的类库提取出来放到指定的文件中- js
-                    test: /[\\/]node_modules[\\/](lodash|jQuery)[\\/]/,
-                    priority: -10,
-                    chunks: 'all',
-                    filename: `static/vendors/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
-                    enforce: true,
-                    name: ( module ) => {
-                        /*
-                 * rawRequest: 'lodash',
-                 * module.identifier()           =>返回路径
-                 * */
-                        return module.rawRequest;
-                    },
-                },
+                // iview: {
+                //     chunks: 'all',
+                //     test: /[\\/]node_modules[\\/]iview[\\/]/i,
+                //     filename: `static/vendors/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
+                //     name: 'iview'
+                // },
+                // iviewCss: {
+                //     // test: 'iview/dist/styles/iview.css',
+                //     test: /iview\.css$/,
+                //     enforce: true,
+                //     chunks: 'all',
+                //     // 因 css 而生成的这个 js 文件和这个 css 放在一起
+                //     filename: `static/vendors/iview/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
+                //     name: 'iview'
+                // },
+                // vue: {
+                //     test: /[\\/]node_modules[\\/](vue|vuex|vue-router|vuex-router-sync)[\\/]/,
+                //     enforce: true,
+                //     priority: -10,
+                //     chunks: 'all',
+                //     filename: `static/vendors/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
+                //     name: 'vue~vuex~vue-router'
+                // },
+                // globalStyles: { // 提取 css 有个问题就是 runtime 好像是走的这个出口
+                //     // 复用的 css 处于测试阶段
+                //     name: 'extract/global-style',
+                //     // filename: `static/javascript/stylesheet/global-style${ !isProduction ? '' : '.[chunkhash]' }.js`,
+                //     test: /[\\/]extract[\\/]\w*\.(sa|sc|c)ss$/,
+                //     chunks: 'all',
+                //     enforce: true,
+                // },
+
+                // iview: {
+                //     test: /[\\/]node_modules[\\/]iview[\\/]/,
+                //     enforce: true,
+                //     chunks: 'all',
+                //     priority: -10,
+                //     filename: `static/vendors/iview/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
+                // },
+                // vendors: { // 将第三方的类库提取出来放到指定的文件中- js
+                //     test: /[\\/]node_modules[\\/](lodash|jQuery)[\\/]/,
+                //     priority: -10,
+                //     chunks: 'all',
+                //     filename: `vendors/[name]${ !isProduction ? '' : '.[chunkhash]' }.js`,
+                //     enforce: true,
+                //     name: ( module ) => {
+                //         /*
+                //  * rawRequest: 'lodash',
+                //  * module.identifier()           =>返回路径
+                //  * */
+                //         return module.rawRequest;
+                //     },
+                // },
             }
         }
     },
