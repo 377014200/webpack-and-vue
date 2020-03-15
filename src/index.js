@@ -12,6 +12,9 @@ import enrollIviewComponent from './iviewComponents';
 
 const router = installRouter( Vue );
 
+Vue.config.warnHandler = function ( msg, vm, trace ) {
+   console.log(  msg, vm, trace )
+};
 sync( store, router );
 enrollIviewComponent( Vue );
 
