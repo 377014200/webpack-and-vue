@@ -1,6 +1,4 @@
 'use strict';
-process.env.NODE_ENV = 'development';
-
 const merge = require( 'webpack-merge' );
 const webpack = require( 'webpack' );
 const webpackBaseConfig = require( './webpack.base.js' );

@@ -1,11 +1,11 @@
+'use strict';
 const portfinder = require ( 'portfinder' );
 const config = require ( '../config' );
 const MyWebpackPlugin = require( './plugin/MyWebpckPugin' );
 const address = require('address');
 const chalk = require('chalk');
-
 const Local = address.ip();
-console.log ( process.env.NODE_ENV );
+
 const webpackConfig = require ( './webpack.dev' );
 module.exports = new Promise ( function ( resolve ) {
     portfinder.getPort ( {

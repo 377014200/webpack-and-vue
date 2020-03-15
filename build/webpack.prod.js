@@ -1,6 +1,4 @@
 'use strict';
-process.env.NODE_ENV = 'production';
-
 const merge = require ( 'webpack-merge' );
 const webpackBaseConfig = require ( './webpack.base.js' );
 const CopyPlugin = require ( 'copy-webpack-plugin' );
@@ -18,7 +16,7 @@ const choosablePlugin = [
     // 分析打包结构时很有用, 在需要时打开它, 否则关闭它
     config.build.bundleAnalyzerReport ? new ( require ( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin ) () : false,
     config.build.productionGzip ? new ( require ( 'compression-webpack-plugin' ) ) ( {
-        asset : '[path].gz[query]',
+        filename : '[path].gz[query]',
         algorithm : 'gzip',
         test : new RegExp (
             '\\.(' +

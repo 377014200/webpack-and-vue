@@ -1,5 +1,4 @@
 'use strict';
-
 const merge = require( 'webpack-merge' );
 const webpack = require( 'webpack' );
 const VueLoaderPlugin = require( 'vue-loader/lib/plugin' );
