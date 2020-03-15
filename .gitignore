@@ -6,3 +6,4 @@ dist/
 devlopment/
 production/
 
+!/package-lock.json
