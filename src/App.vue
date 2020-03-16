@@ -60,10 +60,8 @@ export default {
    }
    header nav {
       text-align: center;
-
    }
    >>> button {
       margin: 0 10px;
    }
-
 </style>

@@ -5,20 +5,20 @@ const isProduction = process.env.NODE_ENV === 'production';
 const ext = !isProduction ? '.[ext]' : '.[contenthash:' + config.build.hashLength + '].[ext]';
 const { initCssLoader, } = require ( './utils' );
 const cssLoader = initCssLoader ( {
-    loader: 'css-loader',
-    options: {}
+    loader : 'css-loader',
+    options : {}
 } );
 const lessLoader = initCssLoader ( {
-    loader: 'less-loader',
-    options: {}
+    loader : 'less-loader',
+    options : {}
 } );
 const scssLoader = initCssLoader ( {
-    loader: 'sass-loader',
+    loader : 'sass-loader',
     options : { indentedSyntax : true },
 } );
 const stylusLoader = initCssLoader ( {
-    loader: 'stylus-loader',
-    options: {}
+    loader : 'stylus-loader',
+    options : {}
 } );
 const vueLoader = {
     test : /\.vue(\?.*)?$/,

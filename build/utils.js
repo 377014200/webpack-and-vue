@@ -46,9 +46,11 @@ exports.createCssLoader = function ( option = {}, loader ) {
         loaders = loaders.concat ( loader.filter ( verification ) )
     }
 
+
     function verification ( options ) {
-        return options ?  options.loader : typeof options === 'string'
+        return options ? options.loader : typeof options === 'string'
     }
+
 
     return [
         styleLoader,

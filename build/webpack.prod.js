@@ -4,7 +4,7 @@ const webpackBaseConfig = require ( './webpack.base.js' );
 const CopyPlugin = require ( 'copy-webpack-plugin' );
 const webpack = require ( 'webpack' );
 const HtmlWebpackPlugin = require ( 'html-webpack-plugin' );
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require ( 'terser-webpack-plugin' );
 const MiniCssExtractPlugin = require ( 'mini-css-extract-plugin' ); // <= 4.0 (webpack version)
 const OptimizeCssAssetsPlugin = require ( 'optimize-css-assets-webpack-plugin' ); // 压缩 css webpack3中一般配合 ExtractTextPlugin一起使用。
 const AddAssetHtmlPlugin = require ( 'add-asset-html-webpack-plugin' ); // 将 DLL 文件中的JavaScript或CSS资产添加到HTML -webpack-plugin生成的HTML中
@@ -46,10 +46,10 @@ module.exports = merge ( webpackBaseConfig, {
     devtool : config.build.devtool,
     plugins : [
         new CopyPlugin ( [{
-                from : resolve ( 'public' ),
-                to : 'static',
-                ignore : ['*.html'],
-        } ] ),
+            from : resolve ( 'public' ),
+            to : 'static',
+            ignore : ['*.html'],
+        }] ),
         new webpack.DefinePlugin ( env ),
         new HtmlWebpackPlugin ( {
             template : config.build.index,
@@ -65,8 +65,8 @@ module.exports = merge ( webpackBaseConfig, {
             }
         } ),
         new MiniCssExtractPlugin ( {
-            filename : assetsPath('css/[name].[chunkhash].css' ),
-            chunkFilename : assetsPath('css/[name].[chunkhash].css' )
+            filename : assetsPath ( 'css/[name].[chunkhash].css' ),
+            chunkFilename : assetsPath ( 'css/[name].[chunkhash].css' )
         } ),
         new OptimizeCssAssetsPlugin ( {
             assetNameRegExp : /\.css$/g,
@@ -74,37 +74,37 @@ module.exports = merge ( webpackBaseConfig, {
             cssProcessorOptions : { safe : true, discardComments : { removeAll : true } },
             canPrint : true
         } ),
-        new webpack.DllReferencePlugin( {
-            manifest: resolve( './dll/vue-manifest.json' ),
+        new webpack.DllReferencePlugin ( {
+            manifest : resolve ( './dll/vue-manifest.json' ),
         } ),
         //
-        new AddAssetHtmlPlugin( {
+        new AddAssetHtmlPlugin ( {
             // filepath: resolve( './dll/*.dll.js' ),
-            filepath: resolve( 'dll/*.*.dll.js' ),
-            outputPath: assetsPath('javascript'),
-            publicPath: config.build.assetsPublicPath + 'static/javascript/'
+            filepath : resolve ( 'dll/*.*.dll.js' ),
+            outputPath : assetsPath ( 'javascript' ),
+            publicPath : config.build.assetsPublicPath + 'static/javascript/'
         } )
     ].concat ( choosablePlugin ),
     optimization : {
-        minimizer: [
-           new TerserPlugin( { // 这个配置没什么明显的效果他应该是默认的
-              test: /\.js(\?.*)?$/i,
-              sourceMap: true,
-              parallel: true, // 并行
-              cache: true,
-              exclude: /[\\/]node_module[\\/]/,
-              terserOptions: {
-                 compress:{
-                    warnings:false,
-                    drop_debugger:true,
-                    drop_console:['console.log']
-                 },
-                 output: {
-                    comments: false, //去掉注释
-                 },
-              },
+        minimizer : [
+            new TerserPlugin ( { // 这个配置没什么明显的效果他应该是默认的
+                test : /\.js(\?.*)?$/i,
+                sourceMap : true,
+                parallel : true, // 并行
+                cache : true,
+                exclude : /[\\/]node_module[\\/]/,
+                terserOptions : {
+                    compress : {
+                        warnings : false,
+                        drop_debugger : true,
+                        drop_console : ['console.log']
+                    },
+                    output : {
+                        comments : false, //去掉注释
+                    },
+                },
 
-           } ),
+            } ),
         ],
         nodeEnv : 'production',
     },

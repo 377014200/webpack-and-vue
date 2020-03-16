@@ -1,41 +1,41 @@
 'use strict';
-const merge = require( 'webpack-merge' );
-const webpack = require( 'webpack' );
-const VueLoaderPlugin = require( 'vue-loader/lib/plugin' );
-const loaderConfig = require( './webpack.loader.js' );
-const { resolve } = require( './utils' );
+const merge = require ( 'webpack-merge' );
+const webpack = require ( 'webpack' );
+const VueLoaderPlugin = require ( 'vue-loader/lib/plugin' );
+const loaderConfig = require ( './webpack.loader.js' );
+const { resolve } = require ( './utils' );
 const isProduction = process.env.NODE_ENV === 'production';
 
-module.exports = merge( loaderConfig, {
-    context: resolve( './' ),
-    entry: {
-        app: './src/index.js',
+module.exports = merge ( loaderConfig, {
+    context : resolve ( './' ),
+    entry : {
+        app : './src/index.js',
     },
-    plugins: [
+    plugins : [
         // new webpack.DefinePlugin( devMode ? env_dev : env_prod ),
-        new VueLoaderPlugin(),
-        new webpack.ProvidePlugin( {
+        new VueLoaderPlugin (),
+        new webpack.ProvidePlugin ( {
             // $: 'jquery',
-            '_': 'lodash',
+            '_' : 'lodash',
         } ),
     ],
-    resolve: {
-        aliasFields: ['browser'],
+    resolve : {
+        aliasFields : ['browser'],
         // 尝试按顺序解析这些扩展。
-        extensions: ['.js', '.vue', '.json'],
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js',
-            '@': resolve( 'src' ),
-            CSS: resolve( 'src/assets/css' ),
-            IMG: resolve( 'src/assets/images' ),
-            JS: resolve( 'src/assets/javascript' ),
-            view: resolve( 'src/view' ),
-            components: resolve( 'src/components' ),
-            router: resolve( 'src/router' ),
-            store: resolve( 'src/store' ),
+        extensions : ['.js', '.vue', '.json'],
+        alias : {
+            'vue$' : 'vue/dist/vue.esm.js',
+            '@' : resolve ( 'src' ),
+            CSS : resolve ( 'src/assets/css' ),
+            IMG : resolve ( 'src/assets/images' ),
+            JS : resolve ( 'src/assets/javascript' ),
+            view : resolve ( 'src/view' ),
+            components : resolve ( 'src/components' ),
+            router : resolve ( 'src/router' ),
+            store : resolve ( 'src/store' ),
         }
     },
-    optimization: {
+    optimization : {
         /*
      *
      *        它的作用是将包含chunks 映射关系的 list单独从 app.js里提取出来，
@@ -44,27 +44,27 @@ module.exports = merge( loaderConfig, {
      *     缓存就失效了。
      *
      * */
-        runtimeChunk: 'single', // !!!!
+        runtimeChunk : 'single', // !!!!
         // 告诉webpack检测并删除空块
-        removeEmptyChunks: true,
+        removeEmptyChunks : true,
 
     },
 
     // 这是和控制台输出的信息有关的信息
-    stats: {
+    stats : {
         // 这个属性暂时没用
-        colors: {
-            green: '\u001b[32m',
+        colors : {
+            green : '\u001b[32m',
         },
         // 增加 child 的信息(false== 关闭)
-        children: false,
+        children : false,
         // 添加构建模块信息(false== 关闭)
-        modules: false,
+        modules : false,
         // 显示警告/错误的依赖关系和来源(自webpack 2.5.0起)
-        moduleTrace: false,
-        cached: true,
+        moduleTrace : false,
+        cached : true,
         // 显示缓存的资产(将此设置为“false”只显示已发出的文件)
-        cachedAssets: false,
+        cachedAssets : false,
     }
 
 } );
