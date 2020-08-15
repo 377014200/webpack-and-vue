@@ -4,7 +4,6 @@
 import 'es6-promise/auto';
 import Vue from './vue.esm';
 import tem from './template';
-console.log( tem );
 // import Vue from 'vue';
 // import installRouter from './router';
 // import store from './store';
