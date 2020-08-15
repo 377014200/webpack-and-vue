@@ -10,6 +10,10 @@ const { resolve } = require ( './utils' );
 module.exports = merge ( webpackBaseConfig, {
     mode : 'development',
     devtool : config.dev.devtool,
+    output : {
+        path : resolve( '../assetsRoot' ),
+        publicPath : '/',
+    },
     devServer : {
         contentBase : resolve ( 'public' ),
         // index: resolve('./public/index.html'),
@@ -17,6 +21,8 @@ module.exports = merge ( webpackBaseConfig, {
         hot : true,
         hotOnly : true,
         host : config.dev.host,
+        // 浏览器中访问的相对路径
+        publicPath: '/' ,
         // 告诉开发服务器查看由开发服务器提供的文件。contentBase选项。默认情况下是禁用的。启用时，文件更改将触发重新加载整个页面。
         watchContentBase : true,
         clientLogLevel : 'silent',
