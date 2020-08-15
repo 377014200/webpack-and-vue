@@ -9,7 +9,7 @@
 import Vue from 'vue';
 import App from '../../src/App.vue';
 // import App from './App.vue';
-import Sidebar from '../../src/view/sidebar/sidebar.vue';
+import Sidebar from '../../src/view/js/sidebar.vue';
 
 describe( 'App.test.js', () => {
 

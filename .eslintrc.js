@@ -84,7 +84,7 @@ module.exports = {
             'CONTENT'
          ]
       }],
-      "vue/html-indent": ["error", 3, {
+      "vue/html-indent": ["error", 4, {
          "attribute": 1, // 属性缩进的倍数
          "baseIndent": 1,
          "alignAttributesVertically": true, //在多行情况下，属性是否应垂直对齐到第一个属性的条件。默认是正确的
@@ -236,14 +236,14 @@ module.exports = {
       "guard-for-in": 0,//for in循环要用if语句过滤
       "handle-callback-err": 0,//nodejs 处理错误
       "id-length": 0,//变量名长度
-      "indent": [2,3],//缩进风格
+      "indent": [2,4],//缩进风格
       "init-declarations": 0,//声明时必须赋初值
       "key-spacing": [2, {"beforeColon": false, "afterColon": true}],//对象字面量中冒号的前后空格
       "lines-around-comment": 0,//行前/行后备注
       "max-depth": [0, 4],//嵌套块深度
       "max-len": [0, 80, 4],//字符串最大长度
       "max-nested-callbacks": [0, 2],//回调嵌套深度
-      "max-params": [0, 3],//函数最多只能有3个参数
+      "max-params": 0,//函数最多只能有3个参数
       "max-statements": [0, 10],//函数内最多有几个声明
       "new-cap": 2,//函数名首行大写必须使用new方式调用，首行小写必须用不带new方式调用
       "new-parens": 2,//new时必须加小括号
@@ -253,7 +253,7 @@ module.exports = {
       "object-shorthand": 0,//强制对象字面量缩写语法
       "operator-assignment": [0, "always"],//赋值运算符 += -=什么的
       "operator-linebreak": [2, "after"],//换行时运算符在行尾还是行首
-      "padded-blocks": [2,{ "blocks": "always", "classes": "always", "switches": "never" }],//块语句内行首行尾是否要空行
+      "padded-blocks": [2,{ "blocks": "never", "classes": "always", "switches": "never" }],//块语句内行首行尾是否要空行
       "prefer-const": 0,//首选const
       "prefer-spread": 0,//首选展开运算
       "prefer-reflect": 0,//首选Reflect的方法

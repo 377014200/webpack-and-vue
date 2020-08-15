@@ -1,85 +1,106 @@
 <template>
-   <div class="home">
-      <h2 class="aaa">
-         尋找失去的未來
-      </h2>
-      <!--<img src="~IMG/img3.jpg" alt="" style="width:100%">-->
-      <div class="public">
-         <div class="assets">
-            无敌真寂寞<br />
-            问问他们我是谁<br />
-            大力出奇迹<br />
-            小生我怕怕<br />
-            充气女友最开放<br />
-            传奇害了我<br />
-            一大米呦抗几楼<br />
-         </div>
-         <p>{{ num }}</p>
-         <Button @click="$store.commit('home/increment', 'test vuex plugin option')">
-            点鸡
-         </Button>
-      </div>
-   </div>
+    <div class="home">
+        <h1>WEB NOTE</h1>
+        <div class="language">
+            <div class="language-list">
+                <div
+                    v-for="{ language, path } in state"
+                    @click="onClick( path )"
+                    class="language-list-item"
+                >
+                    {{ language }}
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 
 export default {
-   'name': 'home',
-   data: function () {
+    'name': 'home',
+    data: function () {
+        return {
+            state: [
+                {
+                    language: 'Html',
+                    path: '/html'
+                },
+                {
+                    language: 'Css',
+                    path: '/css'
+                },
+                {
+                    language: 'Javascript',
+                    path: '/js'
+                },
+                {
+                    language: 'Vue',
+                    path: '/vue'
+                },
+                {
+                    language: 'Webpack',
+                    path: 'webpack'
+                },
 
-      return {
-         msg: ''
-      };
+            ]
+        };
+    },
+    computed: {
+    },
+    methods: {
 
-   },
-   computed: {
-      num: function () {
+        onClick( path ) {
+            this.$router.push( path );
+        }
 
-         return this.$store.state.home.count;
-
-      }
-   },
-   mounted () {
-
-      console.dir( this.constructor );
-      console.dir( this );
-
-   }
+    }
 };
 </script>
 
-<style scoped>
-    .aaa {
-        color: #2b8bff;
+<style lang="less">
+    .home{
+        margin: 0 50px;
+        h1 {
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+        }
+        .language{
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+            .language-list{
+                margin-top: 150px;
+                width: 20%;
+                min-width: 100px;
+                display: inline-block;
+                vertical-align: middle;
+                .language-list-item{
+                    /*padding: 10px;*/
+                    margin: 10px;
+                    font-size: 26px;
+                    border-radius: 10px;
+                    border-bottom: 1px black solid;
+                    &:hover{
+                        background-color: #fff;
+                        cursor: pointer;
+                        border-color: transparent;
+                    }
+                }
+            }
+            /*&:before{*/
+            /*    content: '';*/
+            /*    display: inline-block;*/
+            /*    vertical-align: middle;*/
+            /*    width: 0;*/
+            /*    height: 100%;*/
+            /*}*/
+        }
     }
 
-    h2 {
-        color: #3a2f7a;
-        font-size: 20px;
-        transform: translate(50px, 0);
-    }
-
-    .public {
-        border: 1px solid;
-        width: 25%;
-        height: 400px;
-        padding: 20px
-        /*overflow: hidden;*/
-        /*top: 200px;*/
-        /*bottom: 0;*/
-        /*min-height: 400px;*/
-    }
-
-    .assets {
-        /*position: absolute;*/
-        /*width: 100%;*/
-        /*height: 100%;*/
-        /*bottom: 0;*/
-        border: 1px solid red;
-        /*overflow-x: auto;*/
-        padding: 15px;
-        color: #FFF;
-    }
 
 </style>
