@@ -13,3 +13,4 @@ test/
 config/
 dll/
 /build/
+src/vue.esm.js

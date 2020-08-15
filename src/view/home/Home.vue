@@ -40,43 +40,46 @@ export default {
 
       }
    },
-   mounted() {
+   mounted () {
 
-      // console.log( this );
+      console.dir( this.constructor );
+      console.dir( this );
 
    }
 };
 </script>
 
 <style scoped>
-   .aaa{
-      color: #2b8bff;
-   }
-   h2 {
-      color: #3a2f7a;
-      font-size: 20px;
-      transform: translate(50px, 0);
-   }
+    .aaa {
+        color: #2b8bff;
+    }
 
-   .public {
-      border: 1px solid;
-      width: 25%;
-      height: 400px;
-      padding: 20px
-      /*overflow: hidden;*/
-      /*top: 200px;*/
-      /*bottom: 0;*/
-      /*min-height: 400px;*/
-   }
+    h2 {
+        color: #3a2f7a;
+        font-size: 20px;
+        transform: translate(50px, 0);
+    }
 
-   .assets {
-      /*position: absolute;*/
-      /*width: 100%;*/
-      /*height: 100%;*/
-      /*bottom: 0;*/
-      border: 1px solid red;
-      /*overflow-x: auto;*/
-      padding: 15px;
-   }
+    .public {
+        border: 1px solid;
+        width: 25%;
+        height: 400px;
+        padding: 20px
+        /*overflow: hidden;*/
+        /*top: 200px;*/
+        /*bottom: 0;*/
+        /*min-height: 400px;*/
+    }
+
+    .assets {
+        /*position: absolute;*/
+        /*width: 100%;*/
+        /*height: 100%;*/
+        /*bottom: 0;*/
+        border: 1px solid red;
+        /*overflow-x: auto;*/
+        padding: 15px;
+        color: #FFF;
+    }
 
 </style>
