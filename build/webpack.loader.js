@@ -4,6 +4,7 @@ const config = require ( '../config' );
 const isProduction = process.env.NODE_ENV === 'production';
 const ext = !isProduction ? '.[ext]' : '.[contenthash:' + config.build.hashLength + '].[ext]';
 const { initCssLoader, } = require ( './utils' );
+const passage = require('../dirctive/passage/passageDirctive')
 const cssLoader = initCssLoader ( {
     loader : 'css-loader',
     options : {}
@@ -24,9 +25,14 @@ const vueLoader = {
     test : /\.vue(\?.*)?$/,
     loader : 'vue-loader',
     options : {
-        cacheDirectory : resolve ( 'node_modules\\.cache\\vue-loader' ),
-        cacheIdentifier : '[chunkhash]',
-        hotReload : true
+        // cacheDirectory : resolve ( 'node_modules\\.cache\\vue-loader' ),
+        // cacheIdentifier : '[chunkhash]',
+        hotReload : true,
+        compilerOptions:{
+            directives: {
+                passage: passage
+            }
+        }
     }
 };
 const imageLoader = {

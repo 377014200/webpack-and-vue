@@ -47,7 +47,12 @@ module.exports = merge ( loaderConfig, {
         runtimeChunk : 'single', // !!!!
         // 告诉webpack检测并删除空块
         removeEmptyChunks : true,
-
+        splitChunks:{
+            name:false,
+            minChunks: 2000,
+            // minSize: 0,
+            // maxAsyncRequests: 50
+        }
     },
 
     // 这是和控制台输出的信息有关的信息

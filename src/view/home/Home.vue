@@ -1,60 +1,60 @@
 <template>
-    <div class="home">
-        <h1>WEB NOTE</h1>
-        <div class="language">
-            <div class="language-list">
-                <div
-                    v-for="{ language, path } in state"
-                    @click="onClick( path )"
-                    class="language-list-item"
-                >
-                    {{ language }}
-                </div>
-            </div>
+  <div class="home">
+    <h1>WEB NOTE</h1>
+    <div class="language">
+      <div class="language-list">
+        <div
+          v-for="{ language, path } in state"
+          @click="onClick( path )"
+          class="language-list-item"
+        >
+          {{ language }}
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 
 export default {
-    'name': 'home',
-    data: function () {
-        return {
-            state: [
-                {
-                    language: 'Html',
-                    path: '/html'
-                },
-                {
-                    language: 'Css',
-                    path: '/css'
-                },
-                {
-                    language: 'Javascript',
-                    path: '/js'
-                },
-                {
-                    language: 'Vue',
-                    path: '/vue'
-                },
-                {
-                    language: 'Webpack',
-                    path: 'webpack'
-                },
+  'name': 'home',
+  data: function () {
+    return {
+      state: [
+        {
+          language: 'Html',
+          path: '/html'
+        },
+        {
+          language: 'Css',
+          path: '/css'
+        },
+        {
+          language: 'Javascript',
+          path: '/js'
+        },
+        {
+          language: 'Vue',
+          path: '/vue'
+        },
+        {
+          language: 'Webpack',
+          path: 'webpack'
+        },
 
-            ]
-        };
-    },
-    computed: {
-    },
-    methods: {
+      ]
+    };
+  },
+  computed: {
+  },
+  methods: {
 
-        onClick( path ) {
-            this.$router.push( path );
-        }
-
+    onClick( path ) {
+      this.$router.push( path );
     }
+
+  }
 };
 </script>
 
@@ -72,6 +72,7 @@ export default {
             left: 0;
             bottom: 0;
             right: 0;
+            z-index: -1;
             text-align: center;
             .language-list{
                 margin-top: 150px;

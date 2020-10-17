@@ -1,27 +1,27 @@
 <template>
-    <div class="header">
-    </div>
+  <div class="header">
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Header',
-    components: {},
-    data () {
-        return {};
-    },
-    computed: {},
-    watch: {},
-    created () {
+  name: 'Header',
+  components: {},
+  data () {
+    return {};
+  },
+  computed: {},
+  watch: {},
+  created () {
 
-    },
-    activated () {
-    },
-    mounted () {
-    },
-    methods: {
+  },
+  activated () {
+  },
+  mounted () {
+  },
+  methods: {
 
-    },
+  },
 };
 </script>
 

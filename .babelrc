@@ -13,8 +13,16 @@
       {
         "libraryName": "iview",
         "libraryDirectory": "src/components"
-      }
-    ]
+      },
+        "iview"
+    ],
+      [
+          "component",
+          {
+              "libraryName": "element-ui",
+              "styleLibraryName": "theme-chalk"
+          }
+      ]
   ],
   "presets": [
     "@vue/babel-preset-jsx",

@@ -1,24 +1,24 @@
 <template>
-    <div class="vue"></div>
+  <div class="vue"></div>
 </template>
 
 <script>
 export default {
-    name: 'Vue',
-    components: {},
-    data () {
-        return {};
-    },
-    computed: {},
-    watch: {},
-    created () {
+  name: 'Vue',
+  components: {},
+  data () {
+    return {};
+  },
+  computed: {},
+  watch: {},
+  created () {
 
-    },
-    activated () {
-    },
-    mounted () {
-    },
-    methods: {},
+  },
+  activated () {
+  },
+  mounted () {
+  },
+  methods: {},
 };
 </script>
 

@@ -84,7 +84,7 @@ module.exports = {
             'CONTENT'
          ]
       }],
-      "vue/html-indent": ["error", 4, {
+      "vue/html-indent": ["error", 2, {
          "attribute": 1, // 属性缩进的倍数
          "baseIndent": 1,
          "alignAttributesVertically": true, //在多行情况下，属性是否应垂直对齐到第一个属性的条件。默认是正确的
@@ -236,12 +236,12 @@ module.exports = {
       "guard-for-in": 0,//for in循环要用if语句过滤
       "handle-callback-err": 0,//nodejs 处理错误
       "id-length": 0,//变量名长度
-      "indent": [2,4],//缩进风格
+      "indent": [2,2],//缩进风格
       "init-declarations": 0,//声明时必须赋初值
       "key-spacing": [2, {"beforeColon": false, "afterColon": true}],//对象字面量中冒号的前后空格
       "lines-around-comment": 0,//行前/行后备注
-      "max-depth": [0, 4],//嵌套块深度
-      "max-len": [0, 80, 4],//字符串最大长度
+      "max-depth": [0, 2],//嵌套块深度
+      "max-len": [0, 100, 4],//字符串最大长度
       "max-nested-callbacks": [0, 2],//回调嵌套深度
       "max-params": 0,//函数最多只能有3个参数
       "max-statements": [0, 10],//函数内最多有几个声明

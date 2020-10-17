@@ -1,17 +1,17 @@
 <template>
-   <div id="app">
-      <MessageList :messages="messages"/>
-   </div>
+  <div id="app">
+    <MessageList :messages="messages" />
+  </div>
 </template>
 
 <script>
-   import MessageList from './MessageList.vue'
+import MessageList from './MessageList.vue';
 
-   export default {
-      name: 'app',
-      data: () => ({ messages: ['Hey John', 'Howdy Paco'] }),
-      components: {
-         MessageList
-      }
-   }
+export default {
+   name: 'App',
+   components: {
+      MessageList
+   },
+   data: () => ( { messages: ['Hey John', 'Howdy Paco'] } )
+};
 </script>

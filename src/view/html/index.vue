@@ -1,22 +1,19 @@
+
+<template>
+  <div><slot></slot></div>
+</template>
+
 <script>
 export default {
-    name: 'Bloak',
-    data: function () {
-        return {
-        };
-    },
-    render: function () {
-        return (
-            <div>
+  name: 'Bloak',
+  data: function () {
+    return {
+    };
+  },
 
-            </div>
-        );
-    }
 };
 </script>
 
 <style scoped>
-h1{
-   color: #c7254e;
-}
+
 </style>

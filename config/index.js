@@ -24,7 +24,7 @@ module.exports = {
         port: 8020,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
-        devtool: 'cheap-module-eval-source-map', // Source Maps
+        devtool: 'source-map', // Source Maps
         hotOnly: false,
         proxyTable: {
             // '/api': {

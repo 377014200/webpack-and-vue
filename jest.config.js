@@ -17,22 +17,22 @@
 * */
 
 module.exports = {
-   verbose: true,
-   'moduleNameMapper': {
-      '^vue$': 'vue/dist/vue.common.js',
-      // '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
-      '\\.(css|less)$': 'identity-obj-proxy',
-      '^CSS(.*)$': '<rootDir>/src/assets/css$1'
-   },
-   'moduleFileExtensions': [
-      'js',
-      'vue'
-   ],
+  verbose: true,
+  'moduleNameMapper': {
+    '^vue$': 'vue/dist/vue.common.js',
+    // '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
+    '\\.(css|less)$': 'identity-obj-proxy',
+    '^CSS(.*)$': '<rootDir>/src/assets/css$1'
+  },
+  'moduleFileExtensions': [
+    'js',
+    'vue'
+  ],
 
-   'transform': {
-      '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-      '.*\\.(vue)$': '<rootDir>/node_modules/vue-jest',
-      '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/tests/unit/fileTransformer.js'
-   },
+  'transform': {
+    '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
+    '.*\\.(vue)$': '<rootDir>/node_modules/vue-jest',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/tests/unit/fileTransformer.js'
+  },
 
 };

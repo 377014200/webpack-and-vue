@@ -1,24 +1,24 @@
 <template>
-    <div class="js"></div>
+  <div class="js"></div>
 </template>
 
 <script>
 export default {
-    name: 'Js',
-    components: {},
-    data () {
-        return {};
-    },
-    computed: {},
-    watch: {},
-    created () {
+  name: 'Js',
+  components: {},
+  data () {
+    return {};
+  },
+  computed: {},
+  watch: {},
+  created () {
 
-    },
-    activated () {
-    },
-    mounted () {
-    },
-    methods: {},
+  },
+  activated () {
+  },
+  mounted () {
+  },
+  methods: {},
 };
 </script>
 
