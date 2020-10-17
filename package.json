@@ -81,7 +81,7 @@
         "element-ui": "^2.13.2",
         "es6-promise": "^4.2.8",
         "iview": "^2.11.0",
-        "lodash": "^4.17.14",
+        "lodash": "^4.17.19",
         "ora": "^4.0.3",
         "portfinder": "^1.0.25",
         "require-context": "^1.1.0",
