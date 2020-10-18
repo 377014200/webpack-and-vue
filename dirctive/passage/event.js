@@ -13,15 +13,19 @@ export default {
   },
   [T.PASSAGE_SET]: function( { key, value, prop } = {} ) {
     if ( prop ) {
-      console.log( prop, key, value, getPath( key, prop ) );
       set( this, getPath( key, prop ), value );
     }
   },
   [T.PASSAGE_PUSH]: function( { key, value, prop, def } = {} ) {
     if ( prop ) {
       const path = getPath( key, prop ),
-        source = get( this, path, def );
+        source = get( this, path );
 
+      if ( def instanceof Array && !source ) {
+        def.push( value );
+        set( this, path, def );
+        return;
+      }
       if ( source instanceof Array ) {
         source.push( value );
       } else {

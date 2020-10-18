@@ -4,6 +4,7 @@
       <BreadcrumbItem
         @click.native="onBreadcrumbClick(o,i)"
         v-for="(o, i ) in catalogues"
+        :key="i"
         class="compass-breadcrumb-item"
       >
         <Icon v-if="i===0" type="ios-home-outline"></Icon>

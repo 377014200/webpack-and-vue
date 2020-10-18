@@ -3,6 +3,7 @@ import event from './event';
 
 export default {
   install ( Vue ) {
+    Vue.directive( 'passage', {} );
     Vue.prototype.$passageLocal = function passageLocal ( prop ) {
       const vm = this;
 
@@ -54,7 +55,6 @@ export default {
       }
       const prelude = res.prop.split( '.' )[0];
 
-      console.log( res, attrsMap );
       if ( attrsMap[prelude] ) {
         const obj = { prop: res.prop.replace( prelude, attrsMap[prelude] ) };
 
@@ -66,7 +66,7 @@ export default {
         succeed( obj );
         return;
       }
-      fail( 'The attribute  "' + prelude + '"  was not transmitted through the prop' );
+      fail( 'The attribute  "' + prelude + '" is not propagated through the attribute, or is a constant' );
     };
 
     for ( const name in T ) {
@@ -77,11 +77,16 @@ export default {
           event[ name ].call( vm, arg );
           return;
         }
+
         transformAttr(
           arg[0],
           attrsMap,
           function ( obj ) {
-            event[ name ].call( vm, ...[obj].concat( Array.apply( null, arg ).slice( 1 ) ) );
+            if ( Object.hasOwnProperty.call( vm, obj.prop.split( '.' )[0] ) ) {
+              event[ name ].call( vm, ...[obj].concat( Array.apply( null, arg ).slice( 1 ) ) );
+              return;
+            }
+            vm.$options._base.util.warn( 'The attribute ' + obj.prop.split( '.' )[0] + ' is not defined on the instance , or is a constant' );
           },
           function ( errorMessage ) {
             vm.$options._base.util.warn( errorMessage );

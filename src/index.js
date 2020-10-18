@@ -24,7 +24,7 @@ Vue.use( ElementUI );
 Vue.use( VueHighlightJS );
 Vue.use( api );
 Vue.use( passage );
-Vue.directive( 'passage', {} );
+
 const router = installRouter( Vue );
 
 
