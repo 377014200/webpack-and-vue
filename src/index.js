@@ -13,7 +13,7 @@ import enrollIviewComponent from './iviewComponents';
 import VueHighlightJS from 'vue-highlightjs';
 import api from './api';
 import 'highlight.js/styles/atom-one-dark.css';
-import passage from '../dirctive/passage';
+import passage from '../directive/passage';
 import ElementUI from './ElementUI';
 
 // import ElementUI from 'element-ui';
