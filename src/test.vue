@@ -49,10 +49,10 @@ export default {
   },
   mounted () {
     // debugger
-    console.log( this );
+    console.log( this === this._self );
   },
   created () {
-    this.$passage( 'aaa' ).set( 1111 );
+    this.$passage( '' ).set( 1111 );
   },
   methods: {
     change( e ) {

@@ -9,7 +9,7 @@
     <h2>{{ aaa }}</h2>
     <vvv>
       <test
-        v-passage
+        v-passage="onClick"
         :arr.sync="arr"
         v-bind:bbb="sss"
         @onClick="onClick"
@@ -39,8 +39,8 @@ export default {
         // console.log( this.$api( 'test.aaa' ) );
   },
   methods: {
-    onClick: function () {
-      console.log( this );
+    onClick: function (e) {
+      console.log( this,e );
     }
   }
 };

@@ -4,7 +4,7 @@ const config = require ( '../config' );
 const isProduction = process.env.NODE_ENV === 'production';
 const ext = !isProduction ? '.[ext]' : '.[contenthash:' + config.build.hashLength + '].[ext]';
 const { initCssLoader, } = require ( './utils' );
-const passage = require('../dirctive/passage/passageDirctive')
+const passage = require('../directive/passage/passageDirctive')
 const cssLoader = initCssLoader ( {
     loader : 'css-loader',
     options : {}
@@ -30,7 +30,7 @@ const vueLoader = {
         hotReload : true,
         compilerOptions:{
             directives: {
-                passage: passage
+                passage: passage()
             }
         }
     }
